@@ -1,0 +1,414 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*========================================== VARIABLES CSS ==========================================*/
+/* Using variables from styles.css to maintain consistency */
+
+:root {
+  --header-height: 3.5rem;
+
+  /* Colors */
+  --first-color: #6b533c;
+  --first-color-lighten: #dbd4cb;
+  --title-color: #0c0b07;
+  --text-color: #6b533c;
+  --body-color: #f5f5f5;
+  --scrollbar-thumb: #b9a185;
+  --box-shadow: hsla(220, 68%, 12%, 0.1);
+  --dropdown-bg: #dbd4cb;
+  --dropdown-hover: #6b533c;
+  --card-bg: #fff;
+  --button-hover: #b9a185;
+
+  /* Font and typography */
+  --body-font: "Poppins", sans-serif;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* Font weight */
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* z index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*========================================== BASE ==========================================*/
+/* Using base styles from styles.css */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*========================================== REUSABLE CSS CLASSES ==========================================*/
+/* Using container class from styles.css */
+
+/*========================================== PLACES.CSS SPECIFIC STYLES ==========================================*/
+
+/* City Hero Section */
+.city-hero {
+    min-height: 70vh;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 4rem 0;
+    margin-top: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.city-hero__content {
+    max-width: 50%;
+    padding: 2rem;
+}
+
+.city-hero__content h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.city-hero__content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.city-hero__stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.stat {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    flex: 1;
+}
+
+.stat h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Consultation Form */
+.city-hero__form {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    max-width: 400px;
+}
+
+.city-hero__form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--title-color);
+    text-align: center;
+}
+
+.consultation-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.consultation-form input,
+.consultation-form select {
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ddd;
+    font-size: var(--normal-font-size);
+    transition: border-color 0.3s ease;
+}
+
+.consultation-form input:focus,
+.consultation-form select:focus {
+    border-color: var(--first-color);
+    outline: none;
+}
+
+.consultation-form button {
+    background-color: var(--first-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0.9rem;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.consultation-form button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Recent Projects */
+.recent-projects {
+    padding: 4rem 0;
+}
+
+.recent-projects h2 {
+    font-size: 2rem;
+    color: var(--title-color);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.before-after {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Fixed height */
+    overflow: hidden;
+}
+
+.before-after img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images fit within the container */
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .before-after img {
+    transform: scale(1.05);
+}
+
+/* Add more CSS as needed for other sections */
+.client-info {
+    padding: 4rem 0;
+    background: var(--first-color-lighten);
+    border-radius: 20px;
+}
+.client-info img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3sease;
+}
+
+/* Styles for Pricing Packages Section */
+.pricing-packages {
+    padding: 4rem 0;
+    background-color: var(--body-color);
+}
+
+.pricing-packages .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.pricing-packages h2 {
+    font-size: 2rem;
+    color: var(--title-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.pricing-packages p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.package-card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+}
+
+.package-card h3 {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+}
+
+.package-card .price {
+    font-size: 1.2rem;
+    color: var(--first-color);
+    margin-bottom: 1.5rem;
+}
+
+.package-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.package-card ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+}
+
+.package-card ul li i {
+    color: var(--first-color);
+}
+
+.package-card .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--first-color);
+    color: #fff;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: var(--font-semi-bold);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.package-card .btn-primary:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+}
+
+/* Styles for Livspace Reviews Section */
+.livspace-reviews {
+    padding: 4rem 0;
+    background-color: var(--first-color-lighten);
+}
+
+.livspace-reviews .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.livspace-reviews h2 {
+    font-size: 2rem;
+    color: var(--title-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.livspace-reviews p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Styles for Reasons to Love Section */
+.reasons-to-love {
+    padding: 4rem 0;
+    background-color: var(--body-color);
+}
+
+.reasons-to-love .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.reasons-to-love h2 {
+    font-size: 2rem;
+    color: var(--title-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/*========================================== RESPONSIVE DESIGN ==========================================*/
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    .city-hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .city-hero__content {
+        max-width: 100%;
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .city-hero__content h1 {
+        font-size: 2rem;
+    }
+
+    .city-hero__content p {
+        font-size: 1rem;
+    }
+
+    .city-hero__stats {
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .city-hero__form {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
